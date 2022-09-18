@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/5ro0gt5iq7o86hsx?svg=true)](https://ci.appveyor.com/project/Mozly76/aqa-2-4-1)
