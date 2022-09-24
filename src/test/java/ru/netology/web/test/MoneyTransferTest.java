@@ -12,7 +12,7 @@ class MoneyTransferTest {
 
     @BeforeEach
     void setUp() {
-        open("http://localhost:9999");
+        open("http://localhost:7777");
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
@@ -111,11 +111,12 @@ class MoneyTransferTest {
         dashboardPage.getMoneyTransferFromFirstToSecond();
         var moneyTransferPage = new MoneyTransferPage();
         moneyTransferPage.moneyTransfer(DataHelper.getCardInfo("1"), balance);
+        moneyTransferPage.getError();
 
         int actualFirstCard = dashboardPage.getCardBalance("1");
         int actualSecondCard = dashboardPage.getCardBalance("2");
 
-        assertNotEquals(expectedFirstCard, actualFirstCard);
-        assertNotEquals(expectedSecondCard, actualSecondCard);
+        assertEquals(expectedFirstCard, actualFirstCard);
+        assertEquals(expectedSecondCard, actualSecondCard);
     }
 }
